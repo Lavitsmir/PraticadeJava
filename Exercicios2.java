@@ -163,6 +163,15 @@ public class Exercicios2 {
                 //Escreva um programa que leia um número inteiro maior do que zero e devolva, na tela, a soma de todos os seus algarismos.
                 // Por exemplo, ao número 251 corresponderá o valor 8 (2+5+1).
                 // Se o número lido não for maior do que zero, o programa terminará com a mensagem "Número inválido".
+                System.out.println("Digite o número de 3 digitos: ");
+                int n = Sc.nextInt();
+                int s = 0;
+
+                while (n > 0) {
+                    s += n % 10;
+                    n /= 10;
+                }
+                System.out.printf("A soma é: %d", s);
             }
             case 12 -> {
                 //Ler um número inteiro. Se o número lido for negativo, escreva a mensagem "Número inválido".
@@ -201,23 +210,113 @@ public class Exercicios2 {
                 // De acordo com o resultado, mostre na tela se o aluno está reprovado
                 // (média entre 0 e 2,9), de recuperação (entre 3 e 4,9) ou se foi aprovado.
                 // Faça todas as verificações necessárias.
+                System.out.println("Qual foi a nota do trabalho? ");
+                float t = Sc.nextFloat();
+                System.out.println("Qual foi a nota da Avaliação? ");
+                float a = Sc.nextFloat();
+                System.out.println("Qual foi a nota do exame? ");
+                float e = Sc.nextFloat();
+
+                double f = (t * 2) + (a * 3) + (e * 5) / 10;
+
+                System.out.printf("A média final foi: %f", f);
             }
             case 15 -> {
                 //Usando switch, escreva um programa que leia um inteiro entre 1 e 7 e
                 // imprima o dia da semana correspondente a este numero. Isto é, domingo se 1, segunda-feira se 2, e assim por diante.
+                System.out.println("Digite um número de 1 a 7:" );
+                int d = Sc.nextInt();
+
+                switch (d) {
+                    case 1 -> {
+                        System.out.println("Domingo");
+                    }
+                    case 2 -> {
+                        System.out.println("Segunda");
+                    }
+                    case 3 -> {
+                        System.out.println("Terça");
+                    }
+                    case 4 -> {
+                        System.out.println("Quarta");
+                    }
+                    case 5 -> {
+                        System.out.println("Quinta");
+                    }
+                    case 6 -> {
+                        System.out.println("Sexta");
+                    }
+                    case 7 -> {
+                        System.out.println("Sábado");
+                    }
+                }
             }
             case 16 -> {
                 //Usando switch, escreva um programa que leia um inteiro entre 1 e 12 e imprima o mês correspondente a este numero.
                 // Isto é, janeiro se 1, fevereiro se 2, e assim por diante.
+                System.out.println("Digite um número de 1 a 12:" );
+                int m = Sc.nextInt();
+
+                switch (m) {
+                    case 1 -> {
+                        System.out.println("Janeiro");
+                    }
+                    case 2 -> {
+                        System.out.println("Fevereiro");
+                    }
+                    case 3 -> {
+                        System.out.println("Março");
+                    }
+                    case 4 -> {
+                        System.out.println("Abril");
+                    }
+                    case 5 -> {
+                        System.out.println("Maio");
+                    }
+                    case 6 -> {
+                        System.out.println("Junho");
+                    }
+                    case 7 -> {
+                        System.out.println("Julho");
+                    }
+                    case 8 -> {
+                        System.out.println("Agosto");
+                    }
+                    case 9 -> {
+                        System.out.println("Setembro");
+                    }
+                    case 10 -> {
+                        System.out.println("Outubro");
+                    }
+                    case 11 -> {
+                        System.out.println("Novembro");
+                    }
+                    case 12 -> {
+                        System.out.println("Dezembro");
+                    }
+                }
             }
             case 17 -> {
                 //Faça um programa que calcule e mostre a área de um trapézio. Sabe-se que:
                 //(basemaior+basemenor) * altura
                 //2
                 //Lembre-se a base maior e a base menor devem ser números maiores que zero.
+                System.out.println("Qual a base maior? ");
+                float bma = Sc.nextFloat();
+                System.out.println("Qual a base menor? ");
+                float bme = Sc.nextFloat();
+                System.out.println("Qual a altura? ");
+                float a = Sc.nextFloat();
+
+                if (bma > 0 || bme > 0 || a > 0) {
+                    double r = (bma + bme) * a;
+
+                    System.out.printf("O resultado é : %f", r);
+                }
+                else System.out.println("Valor Inválido");
             }
             case 18 -> {
-                //Faça um programa que mostre ao usuário um menu com 4 opções de operações ma- temáticas (as básicas, por exemplo).
+                //Faça um programa que mostre ao usuário um menu com 4 opções de operações matemáticas (as básicas, por exemplo).
                 // O usuário escolhe uma das opções e o seu programa então pede dois valores numéricos e realiza a operação,
                 // mostrando o resultado e saindo.
             }
@@ -249,6 +348,18 @@ public class Exercicios2 {
                 //Ter pelo menos 65 anos,
                 //• Ou ter trabalhado pelo menos 30 anos,
                 //⚫ Ou ter pelo menos 60 anos e trabalhado pelo menos 25 anos.
+                System.out.println("Qual a sua idade? ");
+                int i = Sc.nextInt();
+                System.out.println("Quantos anos foram trabalhados? ");
+                int it = Sc.nextInt();
+
+                if (i >= 65 || it > 35) {
+                    System.out.println("Pode se aposentar!");
+                }
+                else if (i >= 60 || it >= 25) {
+                    System.out.println("Pode se aposentar!");
+                }
+                else System.out.println("Ainda não pode se aposentar.");
             }
             case 23 -> {
                 //Determine se um determinado ano lido é bissexto. Sendo que um ano é bissexto
@@ -290,8 +401,8 @@ public class Exercicios2 {
             case 27 -> {
                 //Escreva um programa que, dada a idade de um nadador, classifique-o em uma das seguintes categorias:
                 //Categoria Idade
-                //5a7
                 //Infantil A
+                //5  a  7
                 //Infantil B
                 //8 a 10
                 //Juvenil A
@@ -299,6 +410,20 @@ public class Exercicios2 {
                 //Juvenil B Sênior
                 //14 a 17
                 //maiores de 18 anos
+                System.out.println("Qual a sua idade? ");
+                int i = Sc.nextInt();
+
+                if (i >= 5 && i <= 7) {
+                    System.out.println("Infantil A");
+                } else if (i >= 8 && i <= 10) {
+                    System.out.println("Infantil B");
+                } else if (i >= 11 && i <= 13) {
+                    System.out.println("Juvenil A");
+                } else if (i >= 14 && i <= 17) {
+                    System.out.println("Juvenil B");
+                } else if (i >= 18) {
+                    System.out.println("Maior que 18");
+                }else System.out.println("Muito novo para as categorias.");
             }
             case 28 -> {
                 //Faça um programa que leia três números inteiros positivos e efetue o cálculo de uma das seguintes médias de acordo com um valor numérico digitado pelo usuário:
@@ -316,6 +441,26 @@ public class Exercicios2 {
             }
             case 30 -> {
                 //Faça um programa que receba três números e mostre-os em ordem crescente.
+                /*System.out.println("Digite o primeiro número: ");
+                int a = Sc.nextInt();
+                System.out.println("Digite o segundo numero: ");
+                int b = Sc.nextInt();
+                System.out.println("Digite o terceiro numero: ");
+                int c = Sc.nextInt();
+
+                if (a > b && a > c && b > c) {
+                    System.out.printf("%f, %f, %f",a, b, c);
+                } else if (a > b && c > b) {
+                    System.out.printf("%f, %f, %f",a, c, b);
+                } else if ((b > a) && (b > c) && (a > c)) {
+                    System.out.printf("%f, %f, %f",b, a, c);
+                } else if (b > a && b > c && c > a) {
+                    System.out.printf("%f, %f, %f",b, c, a);
+                } else if (c > a && c > b && a > b) {
+                    System.out.printf("%f, %f, %f",c, a, b);
+                } else if (c > a && c > b && b > a) {
+                    System.out.printf("%f, %f, %f",c, b, a);
+                }*/
             }
             case 31 -> {
                 //Faça um programa que receba a altura e o peso de uma pessoa.
