@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Exercicios2 {
@@ -150,13 +151,13 @@ public class Exercicios2 {
                 System.out.println("Altura: ");
                 float h = Sc.nextFloat();
 
-                if (x == "M") {
+                if (Objects.equals(x, "M")) {
                     double r = (72.7*h) - 58;
-                    System.out.println();
+                    System.out.println(r);
                 }
-                if (x == "F") {
+                if (Objects.equals(x, "F")) {
                     double r = (62.1*h) - 44.7;
-                    System.out.println();
+                    System.out.println(r);
                 }
             }
             case 11 -> {
@@ -228,27 +229,13 @@ public class Exercicios2 {
                 int d = Sc.nextInt();
 
                 switch (d) {
-                    case 1 -> {
-                        System.out.println("Domingo");
-                    }
-                    case 2 -> {
-                        System.out.println("Segunda");
-                    }
-                    case 3 -> {
-                        System.out.println("Terça");
-                    }
-                    case 4 -> {
-                        System.out.println("Quarta");
-                    }
-                    case 5 -> {
-                        System.out.println("Quinta");
-                    }
-                    case 6 -> {
-                        System.out.println("Sexta");
-                    }
-                    case 7 -> {
-                        System.out.println("Sábado");
-                    }
+                    case 1 -> System.out.println("Domingo");
+                    case 2 -> System.out.println("Segunda");
+                    case 3 -> System.out.println("Terça");
+                    case 4 -> System.out.println("Quarta");
+                    case 5 -> System.out.println("Quinta");
+                    case 6 -> System.out.println("Sexta");
+                    case 7 -> System.out.println("Sábado");
                 }
             }
             case 16 -> {
@@ -258,42 +245,18 @@ public class Exercicios2 {
                 int m = Sc.nextInt();
 
                 switch (m) {
-                    case 1 -> {
-                        System.out.println("Janeiro");
-                    }
-                    case 2 -> {
-                        System.out.println("Fevereiro");
-                    }
-                    case 3 -> {
-                        System.out.println("Março");
-                    }
-                    case 4 -> {
-                        System.out.println("Abril");
-                    }
-                    case 5 -> {
-                        System.out.println("Maio");
-                    }
-                    case 6 -> {
-                        System.out.println("Junho");
-                    }
-                    case 7 -> {
-                        System.out.println("Julho");
-                    }
-                    case 8 -> {
-                        System.out.println("Agosto");
-                    }
-                    case 9 -> {
-                        System.out.println("Setembro");
-                    }
-                    case 10 -> {
-                        System.out.println("Outubro");
-                    }
-                    case 11 -> {
-                        System.out.println("Novembro");
-                    }
-                    case 12 -> {
-                        System.out.println("Dezembro");
-                    }
+                    case 1 -> System.out.println("Janeiro");
+                    case 2 -> System.out.println("Fevereiro");
+                    case 3 -> System.out.println("Março");
+                    case 4 -> System.out.println("Abril");
+                    case 5 -> System.out.println("Maio");
+                    case 6 -> System.out.println("Junho");
+                    case 7 -> System.out.println("Julho");
+                    case 8 -> System.out.println("Agosto");
+                    case 9 -> System.out.println("Setembro");
+                    case 10 -> System.out.println("Outubro");
+                    case 11 -> System.out.println("Novembro");
+                    case 12 -> System.out.println("Dezembro");
                 }
             }
             case 17 -> {
@@ -323,6 +286,16 @@ public class Exercicios2 {
             case 19 -> {
                 //Faça um programa para verificar se um determinado número inteiro e divisível por 3 ou 5,
                 // mas não simultaneamente pelos dois.
+                System.out.println("Digite um valor inteiro: ");
+                int a = Sc.nextInt();
+
+                if (a % 3 == 0) {
+                    if (a % 5 == 0) System.out.println("Ele é divisivel por 3 e 5");
+                    else System.out.println("Ele é divisivel somente por 3!");
+                } else if (a % 5 == 0) System.out.println("Ele é divisivel somente por 5!");
+
+                else System.out.println("Ele não é divisivel nem por 3, e nem por 5");
+
             }
             case 20 -> {
                 //Dados três valores, A, B, C, verificar se eles podem ser valores dos lados de um triângulo e, se forem,
@@ -331,6 +304,16 @@ public class Exercicios2 {
                 //Chama-se equilátero o triângulo que tem três lados iguais.
                 //Denominam-se isosceles o triângulo que tem o comprimento de dois lados iguais.
                 //Recebe o nome de escaleno o triângulo que tem os três lados diferentes.
+                System.out.println("Digite o primeiro lado do triângulo: ");
+                float a = Sc.nextFloat();
+                System.out.println("Digite o segundo lado do triângulo: ");
+                float b = Sc.nextFloat();
+                System.out.println("Digite o terceiro lado do triângulo: ");
+                float c = Sc.nextFloat();
+
+                if (a == b && b == c) System.out.println("Triângulo equilatero");
+                else if (a == b || a == c || b == c) System.out.println("Triângulo Isosceles");
+                else System.out.println("Triângulo Escaleno");
             }
             case 21 -> {
                 //Escreva o menu de opções abaixo. Leia a opção do usuário e execute a operação escoIhida.
@@ -362,8 +345,8 @@ public class Exercicios2 {
                 else System.out.println("Ainda não pode se aposentar.");
             }
             case 23 -> {
-                //Determine se um determinado ano lido é bissexto. Sendo que um ano é bissexto
-                // se for divisível por 400 ou se for divisível por 4 e não for divisível por 100. Por exemplo: 1988, 1992, 1996
+                //Determine se um determinado ano lido é bissexto. Sendo que um ano é bissexto se for divisível por 400 ou se for divisível por 4 e não for divisível por 100.
+                // Por exemplo: 1988, 1992, 1996
             }
             case 24 -> {
                 //Uma empresa vende o mesmo produto para quatro diferentes estados.
@@ -375,28 +358,52 @@ public class Exercicios2 {
             case 25 -> {
                 //Calcule as raízes da equação de 2o grau.
                 //Lembrando que:
-                //-b±√A
-                //2a
+                //x = -b±√d/2a
                 //Onde
-                //A = B2-4ac
-                //E ax2 + bx + c = 0 representa uma equação de 2o grau.
+                //d = b*b - 4ac
+                //E ax*x + bx + c = 0 representa uma equação de 2o grau.
                 //A variável a tem que ser diferente de zero. Caso seja igual, imprima a mensagem "Não é equação de segundo grau".
                 //Se A<0, não existe real. Imprima a mensagem Não existe raiz.
                 //• Se A = 0, existe uma raiz real. Imprima a raiz e a mensagem Raiz única.
                 //Se A≥ 0, imprima as duas raízes reais.
+                System.out.println("Digite a variavel a: ");
+                double a = Sc.nextDouble();
+                System.out.println("Digite a variavel b: ");
+                double b = Sc.nextDouble();
+                System.out.println("Digite a variavel c: ");
+                double c = Sc.nextDouble();
+                if (a != 0) {
+                    double delta = Math.pow(b, 2) - (4 * a * c);
+                    if (delta < 0) System.out.println("Não existe raiz");
+                    if (delta == 0) {
+                        double x = -b / (2 * a);
+                        System.out.println("A raiz vai ser: " + x);
+                    } else {
+                        double x1 = ((-b * +Math.sqrt(delta)) / 2 * a);
+                        double x2 = ((-b * -Math.sqrt(delta)) / 2 * a);
+
+                        System.out.printf("A Raiz 1 é : %f \nA Raiz 2 é: %f", x1, x2);
+                    }
+                }
+                else System.out.println("a = 0, portanto não é equação do segundo grau");
             }
             case 26 -> {
                 //Leia a distância em Km e a quantidade de litros de gasolina consumidos por um carro em um percurso,
                 // calcule o consumo em Km/l e escreva uma mensagem de acordo com a tabela abaixo:
-                //CONSUMO (km/l)
-                //menor que
-                //8
-                //entre
-                //8 e 14
-                //maior que
-                //12
-                //MENSAGEM Venda o carro! Econômico!
-                //Super econômico!
+                //CONSUMO       (km/l)      MENSAGEM
+                //menor que     8           Venda o carro!
+                //entre         8 e 12      Econômico!
+                //maior que     12          Super econômico!
+                System.out.println("Qual a distância percorrida? ");
+                double d = Sc.nextDouble();
+                System.out.println("Qual a quantidade de gasolina consumida? ");
+                double g = Sc.nextDouble();
+
+                double r = d / g;
+
+                if (r < 8) System.out.println("Venda o carro!");
+                else if (r >= 8 && r <= 12) System.out.println("Econômico!");
+                else System.out.println("Super econômico!");
             }
             case 27 -> {
                 //Escreva um programa que, dada a idade de um nadador, classifique-o em uma das seguintes categorias:
@@ -441,7 +448,8 @@ public class Exercicios2 {
             }
             case 30 -> {
                 //Faça um programa que receba três números e mostre-os em ordem crescente.
-                /*System.out.println("Digite o primeiro número: ");
+                /*
+                System.out.println("Digite o primeiro número: ");
                 int a = Sc.nextInt();
                 System.out.println("Digite o segundo numero: ");
                 int b = Sc.nextInt();
@@ -470,11 +478,31 @@ public class Exercicios2 {
                 //menos que 1,2   A         D              G
                 //de 1,2 a 1,7    B         E              H
                 //Maior q 1,7     C         F              I
+                System.out.println("Qual a altura da pessoa? ");
+                float h = Sc.nextFloat();
+                System.out.println("Qual o peso da pessoa?");
+                float p = Sc.nextFloat();
+
+                if (h < 1.2){
+                    if (p < 60) System.out.println("A");
+                    else if (p >= 60 && p <= 90) System.out.println("D");
+                    else System.out.println("G");
+                }
+                else if (h >= 1.2 && h <= 1.7) {
+                    if (p < 60) System.out.println("B");
+                    else if (p >= 60 && p <= 90) System.out.println("E");
+                    else System.out.println("H");
+                }
+                else {
+                    if (p < 60) System.out.println("C");
+                    else if (p >= 60 && p <= 90) System.out.println("F");
+                    else System.out.println("I");
+                }
             }
             case 32 -> {
                 //Escrever um programa que leia o código do produto escolhido do cardápio de uma lanchonete e a quantidade.
                 // O programa deve calcular o valor a ser pago por aquele lanche.
-                // Considere que a cada execução somente será calculado um pedido. O cardápio da lan- chonete segue o padrão abaixo:
+                // Considere que a cada execução somente será calculado um pedido. O cardápio da lanchonete segue o padrão abaixo:
                 //Especificação      código    preço
                 //Cachorro Quente    100       1.2
                 //Bauru Simples      101       1.3
@@ -483,6 +511,71 @@ public class Exercicios2 {
                 //CheeseBurguer      104       1.7
                 //Suco               105       2.2
                 //Refrigerante       106       1.0
+                System.out.println("Qual o código do produto?");
+                int c = Sc.nextInt();
+                int q;
+                double p, r;
+
+                switch (c) {
+
+                    case 100 -> {
+                        System.out.println("Cachorro Quente, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.2;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 101 -> {
+                        System.out.println("Bauru Simples, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.3;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 102 -> {
+                        System.out.println("Bauru com Ovo, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.5;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 103 -> {
+                        System.out.println("Hamburguer, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.2;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 104 -> {
+                        System.out.println("CheeseBurguer, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.7;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 105 -> {
+                        System.out.println("Suco, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 2.2;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    case 106 -> {
+                        System.out.println("Refrigerante, Quantos foram pedidos? ");
+                        q = Sc.nextInt();
+                        p = 1.0;
+
+                        r = p * q;
+                        System.out.println("O preço é: " + r);
+                    }
+                    default -> System.out.println("O produto não existe!");
+                }
             }
             case 33 -> {
 
