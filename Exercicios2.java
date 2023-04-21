@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercicios2 {
@@ -347,6 +348,15 @@ public class Exercicios2 {
             case 23 -> {
                 //Determine se um determinado ano lido é bissexto. Sendo que um ano é bissexto se for divisível por 400 ou se for divisível por 4 e não for divisível por 100.
                 // Por exemplo: 1988, 1992, 1996
+                System.out.println("Digite o ano: ");
+                int ano = Sc.nextInt();
+
+                if (ano % 400 == 0) System.out.println("É bissexto!");
+                else if (ano % 4 == 0) {
+                    if (ano % 100 == 0) System.out.println("Não é bissexto");
+                    else System.out.println("É bissexto!");
+                }
+                else System.out.println("Não é bissexto");
             }
             case 24 -> {
                 //Uma empresa vende o mesmo produto para quatro diferentes estados.
@@ -379,7 +389,7 @@ public class Exercicios2 {
                         double x = -b / (2 * a);
                         System.out.println("A raiz vai ser: " + x);
                     } else {
-                        double x1 = ((-b * +Math.sqrt(delta)) / 2 * a);
+                        double x1 = ((-b * Math.sqrt(delta)) / 2 * a);
                         double x2 = ((-b * -Math.sqrt(delta)) / 2 * a);
 
                         System.out.printf("A Raiz 1 é : %f \nA Raiz 2 é: %f", x1, x2);
@@ -407,16 +417,12 @@ public class Exercicios2 {
             }
             case 27 -> {
                 //Escreva um programa que, dada a idade de um nadador, classifique-o em uma das seguintes categorias:
-                //Categoria Idade
-                //Infantil A
-                //5  a  7
-                //Infantil B
-                //8 a 10
-                //Juvenil A
-                //11 a 13
-                //Juvenil B Sênior
-                //14 a 17
-                //maiores de 18 anos
+                //Categoria             Idade
+                //Infantil A            5  a  7
+                //Infantil B            8 a 10
+                //Juvenil A             11 a 13
+                //Juvenil B Sênior      14 a 17
+                //maiores de 18 anos    18+
                 System.out.println("Qual a sua idade? ");
                 int i = Sc.nextInt();
 
@@ -434,21 +440,58 @@ public class Exercicios2 {
             }
             case 28 -> {
                 //Faça um programa que leia três números inteiros positivos e efetue o cálculo de uma das seguintes médias de acordo com um valor numérico digitado pelo usuário:
-                //(a) Geométrica: *y*z
-                //(b) Ponderada: +2*+3*2
-                //6
-                //(c) Harmônica: ++
-                //(d) Aritmética:+y+z
+                //(a) Geométrica: cbrt(x*y*z)
+                //(b) Ponderada: x+2*y+3*z/6
+                //(c) Harmônica: 1 / 1/x + 1/y + 1/z
+                //(d) Aritmética:x+y+z / 3
+                System.out.println("Todos os números tem que ser inteiros!");
+                System.out.println("Digite o X: ");
+                double x = Sc.nextInt();
+                System.out.println("Digite o Y: ");
+                double y = Sc.nextInt();
+                System.out.println("Digite o Z: ");
+                double z = Sc.nextInt();
+                double r;
+
+                System.out.println("Digite o número da opção desejada!");
+                System.out.println("1. Geométrica");
+                System.out.println("2. Ponderada");
+                System.out.println("3. Harmônica");
+                System.out.println("4. Aritmética");
+                int escolha = Sc.nextInt();
+
+                switch (escolha) {
+
+                    case 1 -> {
+                        r = Math.cbrt(x*y*z);
+                        System.out.println("O resultado é: " + r);
+                    }
+                    case 2 -> {
+                        r = (x + (2 * y) + (3 * z)) / 6;
+                        System.out.println("O resultado é: " + r);
+                    }
+                    case 3 -> {
+                        r = 1 / ((1/x) +(1/y) + (1/y));
+                        System.out.println("O resultado é: " + r);
+                    }
+                    case 4 -> {
+                        r = (x + y + z) / 3;
+                        System.out.println("O resultado é: " + r);
+                    }
+                    default -> System.out.println("Essa escolha não existe!");
+                }
             }
             case 29 -> {
                 //Faça uma prova de matemática para crianças que estão aprendendo a somar números inteiros menores do que 100.
                 // Escolha números aleatórios entre 1 e 100, e mostre na tela a pergunta:
                 // qual é a soma de a + b, onde a e b são os números aleatórios. Peça a resposta.
                 // Faça cinco perguntas ao aluno, e mostre para ele as perguntas e as respostas corretas, além de quantas vezes o aluno acertou.
+                Random rand = new Random();
+                
             }
             case 30 -> {
                 //Faça um programa que receba três números e mostre-os em ordem crescente.
-                /*
+
                 System.out.println("Digite o primeiro número: ");
                 int a = Sc.nextInt();
                 System.out.println("Digite o segundo numero: ");
@@ -457,18 +500,18 @@ public class Exercicios2 {
                 int c = Sc.nextInt();
 
                 if (a > b && a > c && b > c) {
-                    System.out.printf("%f, %f, %f",a, b, c);
+                    System.out.printf("%d, %d, %d",a, b, c);
                 } else if (a > b && c > b) {
-                    System.out.printf("%f, %f, %f",a, c, b);
+                    System.out.printf("%d, %d, %d",a, c, b);
                 } else if ((b > a) && (b > c) && (a > c)) {
-                    System.out.printf("%f, %f, %f",b, a, c);
+                    System.out.printf("%d, %d, %d",b, a, c);
                 } else if (b > a && b > c && c > a) {
-                    System.out.printf("%f, %f, %f",b, c, a);
+                    System.out.printf("%d, %d, %d",b, c, a);
                 } else if (c > a && c > b && a > b) {
-                    System.out.printf("%f, %f, %f",c, a, b);
-                } else if (c > a && c > b && b > a) {
-                    System.out.printf("%f, %f, %f",c, b, a);
-                }*/
+                    System.out.printf("%d, %d, %d",c, a, b);
+                } else if (a < c && c > b && b > a) {
+                    System.out.printf("%d, %d, %d",c, b, a);
+                }
             }
             case 31 -> {
                 //Faça um programa que receba a altura e o peso de uma pessoa.
@@ -578,9 +621,91 @@ public class Exercicios2 {
                 }
             }
             case 33 -> {
-
+                // Um produto vai sofrer aumento de acordo com a tabela abaixo. Leia o preço antigo,
+                // calcule e escreva o preço novo, e escreva uma mensagem em função do preço novo (de acordo com a segunda tabela).
+                //Preço antigo        Percentual de Aumento            Preço Novo               Mensagem
+                //Até 50R$              5%                              Até 80R$                Barato
+                //Entre 50R$ e 100R$    10%                             entre 80R$ e 120R$      Normal
+                //Acima de 100R$        15%                             entre 120R$ e 200R$     Caro
+                //                                                      Acima de 200R$          Muito Caro
             }
-
+            case 34 -> {
+                //Leia a nota e o número de faltas de um aluno, e escreva seu conceito.
+                // De acordo com a tabela abaixo, quando o aluno tem mais de 20 faltas ocorre uma redução de conceito.
+                //  Nota            Conceito (Até 20 Faltas)    Conceito (Mais de 20 Faltas)
+                //  9.0 até 10.0            A                           B
+                //  7.5 até 8.9             B                           C
+                //  5.0 até 7.4             C                           D
+                //  4.0 até 4.9             D                           E
+                //  0.0 até 3.9             E                           E
+            }
+            case 35 -> {
+                //Leia uma data e determine se ela é válida. Ou seja, verifique se o mês está entre 1 e 12,
+                //e se o dia existe naquele mês. Note que Fevereiro tem 29 dias em anos bissextos, e 28 dias em anos não bissextos.
+            }
+            case 36 -> {
+                //Escreva um programa que, dado o valor da venda, imprima a comissão que deverá ser paga ao vendedor.
+                // Para calcular a comissão, considere a tabela abaixo:
+                //  Venda Mensal                                                Comissão
+                //  Maior ou igual a R$100.000,00                               R$700,00 + 16% das vendas
+                //  Menor que R$100.000,00 e maior ou igual a R$80.000,00       R$650,00 + 14% das vendas
+                //  Menor que R$80.000,00 e maior ou igual a R$60.000,00        R$600,00 + 14% das vendas
+                //  Menor que R$60.000,00 e maior ou igual a R$40.000,00        R$550,00 + 14% das vendas
+                //  Menor que R$40.000,00 e maior ou igual a R$20.000,00        R$500,00 + 14% das vendas
+                //  Menor que R$20.000,00                                       R$400,00 + 14% das vendas
+            }
+            case 37 -> {
+                //As tarifas de certo parque de estacionamento são as seguintes:
+                //1° e 2° hora - R$ 1,00 cada
+                //3o e 4o hora - R$ 1,40 cada
+                //5 hora e seguintes - R$ 2,00 cada
+                //O número de horas a pagar é sempre inteiro e arredondado por excesso.
+                // Deste modo, quem estacionar durante 61 minutos pagará por duas horas, que é o mesmo que pagaria se tivesse permanecido 120 minutos.
+                // Os momentos de chegada ao parque e partida deste são apresentados na forma de pares de inteiros, representando horas e minutos.
+                // Por exemplo, o par 12 50 representará "dez para a uma da tarde". Pretende-se criar um programa que, lidos pelo teclado os momentos de chegada e de partida,
+                // escreva na tela o preço cobrado pelo estacionamento. Admite-se que a chegada e a partida se dão com intervalo não superior a 24 horas.
+                // Portanto, se uma dada hora de chegada for superior à da partida, isso não é uma situação de erro, antes significará que a partida ocorreu no dia seguinte ao da chegada.
+            }
+            case 38 -> {
+                //Leia uma data de nascimento de uma pessoa fornecida através de três números inteiros: Dia, Mês e Ano.
+                // Teste a validade desta data para saber se esta é uma data válida.
+                // Teste se o dia fornecido é um dia válido: dia > 0, dia 28 para o mês de fevereiro (29 se o ano for bissexto),
+                // dia ≤ 30 em abril, junho, setembro e novembro, dia 31 nos outros meses. Teste a validade do mês: mês > 0 e mês < 13.
+                // Teste a validade do ano: ano < ano atual (use uma constante definida com o valor igual a 2008). Imprimir: "data válida" ou "data inválida" no final da execução do programa.
+            }
+            case 39 -> {
+                //Uma empresa decide dar um aumento aos seus funcionários de acordo com uma tabela que considera o salário atual e o tempo de serviço de cada funcionário.
+                // Os funcionários com menor salário terão um aumento proporcionalmente maior do que os funcionários com um salário maior,
+                // e conforme o tempo de serviço na empresa, cada funcionário irá receber um bônus adicional de salário. Faça um programa que leia:
+                //o valor do salário atual do funcionário;
+                //o tempo de serviço desse funcionário na empresa (número de anos de trabalho na empresa).
+                //Use as tabelas abaixo para calcular o salário reajustado deste funcionário e imprima o valor do salário final reajustado,
+                // ou uma mensagem caso o funcionário não tenha direito a nenhum aumento.
+                //  Salário Atual       Reajuste(%)     Tempo de Serviço        Bônus
+                //  Até 500,00              25%         Abaixo de 1 ano         Sem Bônus
+                //  Até 1000,00             20%         De 1 a 3 anos           100,00
+                //  Até 1500,00             15%         De 4 a 6 anos           200,00
+                //  Até 2000,00             10%         De 7 a 10 anos          300,00
+                //  Acima de 2000,00     Sem reajuste   Mais de 10 anos         500,00
+            }
+            case 40 -> {
+                //O custo ao consumidor de um carro novo é a soma do custo de fábrica, da comissão do distribuidor, e dos impostos.
+                // A comissão e os impostos são calculados sobre o custo de fábrica, de acordo com a tabela abaixo. Leia o custo de fábrica e escreva o custo ao consumidor.
+                //  Custo de Fábrica            % do Distribuidor       % dos Impostos
+                // Até R$12.000,00                      5                   isento
+                // entre R$12.000,00 e R$25.000,00      10                    15
+                // acima de R$25.000,00                 15                    20
+            }
+            case 41 -> {
+                //Faça um algoritmo que calcule o IMC de uma pessoa e mostre sua classificação de acordo com a tabela abaixo:
+                //      IMC             Classificação
+                //  < 18,5              Abaixo do Peso
+                //  18,6 - 24,9         Saudavel
+                //  25,0 - 29,9         Peso em Excesso
+                //  30,0 - 24,9         Obesidade Grau I
+                //  35,0 - 39,9         Obesidade Grau II (Severa)
+                //  >= 40               Obesidade Grau III (Mórbida)
+            }
             default -> System.out.println("O exercicio ou não está feito ainda, ou não existe :p");
         }
     }
